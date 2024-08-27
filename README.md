@@ -1,4 +1,4 @@
-# BLAZERGAMES
+# Slammp
 
 *Subscribe to Slammp!!!*
 https://www.youtube.com/@Slammp
