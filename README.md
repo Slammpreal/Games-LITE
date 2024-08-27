@@ -1,8 +1,7 @@
 # BLAZERGAMES
 
-*Subscribe to Blazer!!!*
-https://youtube.com/c/blazerhm
-
+*Subscribe to Slammp!!!*
+https://www.youtube.com/@Slammp
 ## Deployment
 Here are some other deployment options to deploy the site on your own.
 
