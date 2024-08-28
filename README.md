@@ -3,7 +3,7 @@
 *Subscribe to Slammp!!!*
 https://www.youtube.com/@Slammp
 ## Deployment
-Here are some other deployment options to deploy the site on your own.
+stuff
 
 [![Run on Replit](https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/master/buttons/remade/replit.svg)](https://replit.com/github/beforeblazergithub/BlazerGames)
 <br>
