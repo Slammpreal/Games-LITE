@@ -18,7 +18,6 @@
 
         body {
             font-family: Arial, sans-serif; /* Default font */
-            overflow: hidden; /* Prevent scrollbars on the home page */
         }
 
         nav {
@@ -51,8 +50,7 @@
         iframe {
             border: none; /* No border for iframe */
             width: 100%; /* Full width */
-            height: 100vh; /* Full height */
-            display: block; /* Prevent whitespace */
+            height: calc(100vh - 50px); /* Full height minus nav height */
         }
 
         .content {
