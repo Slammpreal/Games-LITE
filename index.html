@@ -8,32 +8,87 @@
     <title>Home</title>
     <link rel="stylesheet" href="/main.css">
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.2.0/css/all.css">
+    <style>
+        /* Reset margins and paddings */
+        * {
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            box-sizing: border-box; /* Make box sizing consistent */
+        }
+
+        body {
+            font-family: Arial, sans-serif; /* Default font */
+            overflow: hidden; /* Prevent scrollbars on the home page */
+        }
+
+        nav {
+            background-color: #333; /* Nav background color */
+            color: white; /* Text color */
+            display: flex; /* Flexbox for nav */
+            align-items: center; /* Center items vertically */
+            padding: 10px; /* Padding for nav */
+        }
+
+        nav img {
+            height: 40px; /* Logo size */
+            margin-right: 10px; /* Space between logo and title */
+        }
+
+        .home-button {
+            width: 80px; /* Button size */
+            height: 30px; /* Button size */
+            background: #4CAF50; /* Green background */
+            color: white; /* White text */
+            border: none; /* No border */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor */
+            position: fixed; /* Fixed position */
+            top: 10px; /* Distance from top */
+            right: 10px; /* Distance from right */
+            z-index: 100; /* On top of other elements */
+        }
+
+        iframe {
+            border: none; /* No border for iframe */
+            width: 100%; /* Full width */
+            height: 100vh; /* Full height */
+            display: block; /* Prevent whitespace */
+        }
+
+        .content {
+            height: calc(100vh - 60px); /* Adjust height for nav */
+            overflow: auto; /* Allow scrolling */
+        }
+    </style>
 </head>
 <body>
     <script>
-        // Function to open games in about:blank iframe and add a "Home" button
+        // Force site to load in an about:blank iframe when first loaded
+        if (window.self === window.top) {
+            var win = window.open("about:blank", "_blank");
+            win.document.write('<iframe src="' + window.location.href + '" style="border:none;width:100%;height:100vh;"></iframe>');
+            window.close();
+        }
+
+        // Function to open games in an about:blank iframe and add a "Home" button
         function create(url) {
             var win = window.open("about:blank", "_blank");
             win.document.body.style.margin = '0';
             win.document.body.style.height = '100vh';
             win.document.body.style.display = 'flex';
             win.document.body.style.flexDirection = 'column';
+            win.document.body.style.overflow = 'hidden'; // Prevent scrollbars
 
             var iframe = win.document.createElement('iframe');
-            iframe.style.border = 'none';
+            iframe.style.border = 'none'; // Remove border
+            iframe.style.overflow = 'hidden'; // Hide scrollbars
             iframe.style.width = '100%';
-            iframe.style.flex = '1';  // Makes iframe take up remaining space
-            iframe.src = url;
+            iframe.style.height = '100%'; // Full height
 
             // Add a "Home" button to the new window
             var homeButton = win.document.createElement('button');
             homeButton.innerHTML = 'Home';
-            homeButton.style.width = '100%';
-            homeButton.style.height = '50px';  // Set a fixed height for the button
-            homeButton.style.background = '#333';
-            homeButton.style.color = '#fff';
-            homeButton.style.border = 'none';
-            homeButton.style.fontSize = '18px';
+            homeButton.className = 'home-button'; // Apply the new class for styling
             homeButton.onclick = function() {
                 win.close(); // Close the game window and return to the home page
                 window.open(window.location.origin, "_self"); // Open home page in the same tab
@@ -114,8 +169,6 @@
             <a href="#" onclick="create('games/slope/'); return false;"><img src="images/slope.jpg" alt="slope"></a>
             <a href="#" onclick="create('games/motox3m2/'); return false;"><img src="images/motox3m2.jpg" alt="moto x3m2"></a>
             <a href="#" onclick="create('games/fire-and-ice/'); return false;"><img src="images/fire-and-ice.png" alt="a dance of fire and ice"></a>
-            <a href="#" onclick="create('games/1v1lol/'); return false;"><img src="images/1v1-lol-new.jpg" alt="1v1lol"></a>
-            <a href="#" onclick="create('games/hill-racing/'); return false;"><img src="images/hill-racing.jpg" alt="hill-racing"></a>
         </div>
     </div>
 </body>
