@@ -8,6 +8,38 @@
     <title>Home</title>
     <link rel="stylesheet" href="/main.css">
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.2.0/css/all.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet"> <!-- New font -->
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif; /* Apply the new font to the entire body */
+            margin: 0; /* Remove default margin */
+            overflow: hidden; /* Prevent body scroll */
+        }
+
+        button {
+            cursor: pointer; /* Change cursor to pointer for buttons */
+        }
+
+        /* Style for the home button */
+        .home-button {
+            width: 100px;  /* Set a fixed width */
+            height: 30px;  /* Set a smaller height */
+            background: #333;
+            color: #fff;
+            border: none;
+            font-size: 16px; /* Adjust font size */
+            margin: 10px auto; /* Center the button */
+            display: block; /* Center the button */
+            z-index: 1000; /* Ensure button is above other elements */
+        }
+
+        /* Style for the iframe */
+        iframe {
+            border: none; /* Remove iframe border */
+            overflow: hidden; /* Hide scrollbars */
+            flex: 1; /* Makes iframe take up remaining space */
+        }
+    </style>
 </head>
 <body>
     <script>
@@ -25,22 +57,18 @@
             win.document.body.style.height = '100vh';
             win.document.body.style.display = 'flex';
             win.document.body.style.flexDirection = 'column';
+            win.document.body.style.overflow = 'hidden'; // Prevent scrollbars
 
             var iframe = win.document.createElement('iframe');
-            iframe.style.border = 'none';
+            iframe.style.border = 'none'; // Remove border
+            iframe.style.overflow = 'hidden'; // Hide scrollbars
             iframe.style.width = '100%';
-            iframe.style.flex = '1';  // Makes iframe take up remaining space
             iframe.src = url;
 
             // Add a "Home" button to the new window
             var homeButton = win.document.createElement('button');
             homeButton.innerHTML = 'Home';
-            homeButton.style.width = '100%';
-            homeButton.style.height = '50px';  // Set a fixed height for the button
-            homeButton.style.background = '#333';
-            homeButton.style.color = '#fff';
-            homeButton.style.border = 'none';
-            homeButton.style.fontSize = '18px';
+            homeButton.className = 'home-button'; // Apply the new class for styling
             homeButton.onclick = function() {
                 win.close(); // Close the game window and return to the home page
                 window.open(window.location.origin, "_self"); // Open home page in the same tab
