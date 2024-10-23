@@ -11,13 +11,14 @@
     <style>
         /* Reset margins and paddings */
         * {
-            margin: 0; /* Remove default margin */
-            padding: 0; /* Remove default padding */
-            box-sizing: border-box; /* Make box sizing consistent */
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            font-family: Arial, sans-serif; /* Default font */
+            font-family: Arial, sans-serif;
+            overflow: hidden; /* Prevent scrollbars on the home page */
         }
 
         nav {
@@ -50,7 +51,8 @@
         iframe {
             border: none; /* No border for iframe */
             width: 100%; /* Full width */
-            height: calc(100vh - 50px); /* Full height minus nav height */
+            height: 100vh; /* Full height */
+            display: block; /* Prevent whitespace */
         }
 
         .content {
