@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="icon" type="image/jpg" href="images/google-classroom.png"/>
-
+    <link rel="icon" type="image/jpg" href="images/google-classroom.png"/>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,13 +18,13 @@
     <div class="featured">
         <h1>Popular:</h1>
         <div class="column">
-          <a href="games/bob-the-robber-2/">
+          <a href="#" onclick="create('games/bob-the-robber-2/'); return false;">
             <img src="images/bob-the-robber-2.png">
             <div class="play-button">
                 <i class="fa-solid fa-play"></i>
             </div>
           </a>
-          <a href="games/vex7/">
+          <a href="#" onclick="create('games/vex7/'); return false;">
             <img src="images/vex7.jpeg">
             <div class="play-button">
                 <i class="fa-solid fa-play"></i>
@@ -33,7 +32,7 @@
           </a>
         </div>
         <div class="row">
-          <a href="games/1v1lol/">
+          <a href="#" onclick="create('games/1v1lol/'); return false;">
             <img src="images/1v1-lol-new.jpg">
             <div class="play-button">
                 <i class="fa-solid fa-play"></i>
@@ -41,54 +40,64 @@
           </a>
         </div>
         <div class="row">
-          <a href="games/drive-mad/">
+          <a href="#" onclick="create('games/drive-mad/'); return false;">
             <img src="images/drive-mad.jpg">
             <div class="play-button">
                 <i class="fa-solid fa-play"></i>
             </div>
-            </a>
+          </a>
         </div>
         <div class="column">
-          <a href="games/moto-x3m/">
+          <a href="#" onclick="create('games/moto-x3m/'); return false;">
             <img src="images/moto-x3m.jpg">
             <div class="play-button">
                 <i class="fa-solid fa-play"></i>
             </div>
           </a>
-          <a href="games/retro-bowl/">
+          <a href="#" onclick="create('games/retro-bowl/'); return false;">
             <img src="images/retro-bowl.jpg">
             <div class="play-button">
                 <i class="fa-solid fa-play"></i>
             </div>
           </a>
         </div>
-        </div>
     </div>
 
     <div class="content">
-
-    <hr>
-
-    <div class="search">
-        <input type="text" placeholder="Search..." oninput="">
-        <button><i class="fas fa-search"></i></button>
-    </div>
-
-    <div id="games">
-        <a href="games/bob-the-robber-2/"><img src="images/bob-the-robber-2.png" alt="bob the robber 2"></a>
-        <a href="games/vex7/"><img src="images/vex7.jpeg" alt="vex 7"></a>
-        <a href="games/vex6/"><img src="images/vex7.jpeg" alt="vex 6"></a>
-        <a href="games/moto-x3m/"><img src="images/moto-x3m.jpg" alt="moto x3m"></a>
-        <a href="games/retro-bowl/"><img src="images/retro-bowl.jpg" alt="retrobowl"></a>
-        <a href="games/drive-mad/"><img src="images/drive-mad.jpg" alt="drive mad"></a>
-        <a href="games/slope/"><img src="images/slope.jpg" alt="slope"></a>
-        <a href="games/motox3m2/"><img src="images/motox3m2.jpg" alt="moto x3m2"></a>
-        <a href="games/fire-and-ice/"><img src="images/fire-and-ice.png" alt="a dance of fire and ice"></a>
-        <a href="games/1v1lol/"><img src="images/1v1-lol-new.jpg" alt="1v1lol"></a>
-        <a href="games/hill-racing/"><img src="images/hill-racing.jpg" alt="hill-racing"></a>
-    </div>
+        <hr>
+        <div class="search">
+            <input type="text" placeholder="Search..." oninput="">
+            <button><i class="fas fa-search"></i></button>
+        </div>
+        <div id="games">
+            <a href="#" onclick="create('games/bob-the-robber-2/'); return false;"><img src="images/bob-the-robber-2.png" alt="bob the robber 2"></a>
+            <a href="#" onclick="create('games/vex7/'); return false;"><img src="images/vex7.jpeg" alt="vex 7"></a>
+            <a href="#" onclick="create('games/vex6/'); return false;"><img src="images/vex6.jpeg" alt="vex 6"></a>
+            <a href="#" onclick="create('games/moto-x3m/'); return false;"><img src="images/moto-x3m.jpg" alt="moto x3m"></a>
+            <a href="#" onclick="create('games/retro-bowl/'); return false;"><img src="images/retro-bowl.jpg" alt="retrobowl"></a>
+            <a href="#" onclick="create('games/drive-mad/'); return false;"><img src="images/drive-mad.jpg" alt="drive mad"></a>
+            <a href="#" onclick="create('games/slope/'); return false;"><img src="images/slope.jpg" alt="slope"></a>
+            <a href="#" onclick="create('games/motox3m2/'); return false;"><img src="images/motox3m2.jpg" alt="moto x3m2"></a>
+            <a href="#" onclick="create('games/fire-and-ice/'); return false;"><img src="images/fire-and-ice.png" alt="a dance of fire and ice"></a>
+            <a href="#" onclick="create('games/1v1lol/'); return false;"><img src="images/1v1-lol-new.jpg" alt="1v1lol"></a>
+            <a href="#" onclick="create('games/hill-racing/'); return false;"><img src="images/hill-racing.jpg" alt="hill-racing"></a>
+        </div>
     </div>
 </body>
-</html>
 
-<script src="script.js"></script>
+<script>
+function create(url) {
+    var win = window.open();
+    win.document.body.style.margin = '0';
+    win.document.body.style.height = '100vh';
+    var iframe = win.document.createElement('iframe');
+    iframe.style.border = 'none';
+    iframe.style.width = '100%';
+    iframe.style.height = '100%';
+    iframe.style.margin = '0';
+    iframe.src = url;
+    win.document.body.appendChild(iframe);
+}
+</script>
+
+</html>
