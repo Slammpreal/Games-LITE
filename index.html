@@ -12,37 +12,44 @@
 <body>
     <script>
         // Function to open games in about:blank iframe and add a "Home" button
-        function create(url) {
-            var win = window.open("about:blank", "_blank");
-            win.document.body.style.margin = '0';
-            win.document.body.style.height = '100vh';
-            win.document.body.style.display = 'flex';
-            win.document.body.style.flexDirection = 'column';
+        // Function to open games in about:blank iframe and add a "Home" button
+function create(url) {
+    var win = window.open("about:blank", "_blank");
+    win.document.body.style.margin = '0';
+    win.document.body.style.height = '100vh';
+    win.document.body.style.display = 'flex';
+    win.document.body.style.flexDirection = 'column';
 
-            var iframe = win.document.createElement('iframe');
-            iframe.style.border = 'none';
-            iframe.style.width = '100%';
-            iframe.style.flex = '1';  // Makes iframe take up remaining space
-            iframe.src = url;
+    var iframe = win.document.createElement('iframe');
+    iframe.style.border = 'none';
+    iframe.style.width = '100%';
+    iframe.style.height = '100%'; // Set height to take full space
+    iframe.src = url;
 
-            // Add a "Home" button to the new window
-            var homeButton = win.document.createElement('button');
-            homeButton.innerHTML = 'Home';
-            homeButton.style.width = '100%';
-            homeButton.style.height = '50px';  // Set a fixed height for the button
-            homeButton.style.background = '#333';
-            homeButton.style.color = '#fff';
-            homeButton.style.border = 'none';
-            homeButton.style.fontSize = '18px';
-            homeButton.onclick = function() {
-                win.close(); // Close the game window and return to the home page
-                window.open(window.location.origin, "_self"); // Open home page in the same tab
-            };
+    // Add a "Home" button to the new window
+    var homeButton = win.document.createElement('button');
+    homeButton.innerHTML = 'Home';
+    homeButton.style.width = '100%';
+    homeButton.style.height = '50px';  // Set a fixed height for the button
+    homeButton.style.background = '#333';
+    homeButton.style.color = '#fff';
+    homeButton.style.border = 'none';
+    homeButton.style.fontSize = '18px';
+    homeButton.onclick = function() {
+        win.close(); // Close the game window and return to the home page
+        window.open(window.location.origin, "_self"); // Open home page in the same tab
+    };
 
-            // Append the iframe and the home button to the new window
-            win.document.body.appendChild(iframe);
-            win.document.body.appendChild(homeButton);
-        }
+    // Append the iframe and the home button to the new window
+    win.document.body.appendChild(iframe);
+    win.document.body.appendChild(homeButton);
+    
+    // Set focus on the iframe to capture keyboard events
+    iframe.onload = function() {
+        iframe.contentWindow.focus();
+    };
+}
+
     </script>
 
     <nav>
