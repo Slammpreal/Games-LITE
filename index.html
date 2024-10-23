@@ -12,8 +12,6 @@
     <style>
         body {
             font-family: 'Roboto', sans-serif; /* Apply the new font to the entire body */
-            margin: 0; /* Remove default margin */
-            overflow: hidden; /* Prevent body scroll */
         }
 
         button {
@@ -30,14 +28,6 @@
             font-size: 16px; /* Adjust font size */
             margin: 10px auto; /* Center the button */
             display: block; /* Center the button */
-            z-index: 1000; /* Ensure button is above other elements */
-        }
-
-        /* Style for the iframe */
-        iframe {
-            border: none; /* Remove iframe border */
-            overflow: hidden; /* Hide scrollbars */
-            flex: 1; /* Makes iframe take up remaining space */
         }
     </style>
 </head>
@@ -57,12 +47,11 @@
             win.document.body.style.height = '100vh';
             win.document.body.style.display = 'flex';
             win.document.body.style.flexDirection = 'column';
-            win.document.body.style.overflow = 'hidden'; // Prevent scrollbars
 
             var iframe = win.document.createElement('iframe');
-            iframe.style.border = 'none'; // Remove border
-            iframe.style.overflow = 'hidden'; // Hide scrollbars
+            iframe.style.border = 'none';
             iframe.style.width = '100%';
+            iframe.style.flex = '1';  // Makes iframe take up remaining space
             iframe.src = url;
 
             // Add a "Home" button to the new window
