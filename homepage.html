@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/jpg" href="images/google-classroom.png"/>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.2.0/css/all.css">
+</head>
+<body>
+    <script>
+        // Function to open games in about:blank iframe and add a "Home" button
+        // Function to open games in about:blank iframe and add a "Home" button
+function create(url) {
+    var win = window.open("about:blank", "_blank");
+    win.document.body.style.margin = '0';
+    win.document.body.style.height = '100vh';
+    win.document.body.style.display = 'flex';
+    win.document.body.style.flexDirection = 'column';
+
+    var iframe = win.document.createElement('iframe');
+    iframe.style.border = 'none';
+    iframe.style.width = '100%';
+    iframe.style.height = '100%'; // Set height to take full space
+    iframe.src = url;
+
+    // Add a "Home" button to the new window
+    var homeButton = win.document.createElement('button');
+    homeButton.innerHTML = 'Home';
+    homeButton.style.width = '100%';
+    homeButton.style.height = '50px';  // Set a fixed height for the button
+    homeButton.style.background = '#333';
+    homeButton.style.color = '#fff';
+    homeButton.style.border = 'none';
+    homeButton.style.fontSize = '18px';
+    homeButton.onclick = function() {
+        win.close(); // Close the game window and return to the home page
+        window.open(window.location.origin, "_self"); // Open home page in the same tab
+    };
+
+    // Append the iframe and the home button to the new window
+    win.document.body.appendChild(iframe);
+    win.document.body.appendChild(homeButton);
+    
+    // Set focus on the iframe to capture keyboard events
+    iframe.onload = function() {
+        iframe.contentWindow.focus();
+    };
+}
+
+    </script>
+
+    <nav>
+        <img src="images/Games-LITE.png" alt="logo">
+        <h1>Games LITE</h1>
+    </nav>
+
+    <div class="featured">
+        <h1>Popular:</h1>
+        <div class="column">
+          <a href="#" onclick="create('games/bob-the-robber-2/'); return false;">
+            <img src="images/bob-the-robber-2.png">
+            <div class="play-button">
+                <i class="fa-solid fa-play"></i>
+            </div>
+          </a>
+          <a href="#" onclick="create('games/vex7/'); return false;">
+            <img src="images/vex7.jpeg">
+            <div class="play-button">
+                <i class="fa-solid fa-play"></i>
+            </div>
+          </a>
+        </div>
+        <div class="row">
+          <a href="#" onclick="create('games/1v1lol/'); return false;">
+            <img src="images/1v1-lol-new.jpg">
+            <div class="play-button">
+                <i class="fa-solid fa-play"></i>
+            </div>
+          </a>
+        </div>
+        <div class="row">
+          <a href="#" onclick="create('games/minecraft/'); return false;">
+            <img src="images/mc.png">
+            <div class="play-button">
+                <i class="fa-solid fa-play"></i>
+            </div>
+          </a>
+        </div>
+        <div class="column">
+          <a href="#" onclick="create('games/moto-x3m/'); return false;">
+            <img src="images/moto-x3m.jpg">
+            <div class="play-button">
+                <i class="fa-solid fa-play"></i>
+            </div>
+          </a>
+          <a href="#" onclick="create('games/retro-bowl/'); return false;">
+            <img src="images/retro-bowl.jpg">
+            <div class="play-button">
+                <i class="fa-solid fa-play"></i>
+            </div>
+          </a>
+        </div>
+    </div>
+
+    <div class="content">
+        <hr>
+        <div class="search">
+            <input type="text" placeholder="Search..." oninput="">
+            <button><i class="fas fa-search"></i></button>
+        </div>
+        <div id="games">
+            <a href="#" onclick="create('games/bob-the-robber-2/'); return false;"><img src="images/bob-the-robber-2.png" alt="bob the robber 2"></a>
+            <a href="#" onclick="create('games/vex7/'); return false;"><img src="images/vex7.jpeg" alt="vex 7"></a>
+            <a href="#" onclick="create('games/minecraft/'); return false;"><img src="images/mc.png" alt="Minecraft"></a>
+            <a href="#" onclick="create('games/moto-x3m/'); return false;"><img src="images/moto-x3m.jpg" alt="moto x3m"></a>
+            <a href="#" onclick="create('games/retro-bowl/'); return false;"><img src="images/retro-bowl.jpg" alt="retrobowl"></a>
+            <a href="#" onclick="create('games/slope/'); return false;"><img src="images/slope.jpg" alt="slope"></a>
+            <a href="#" onclick="create('games/motox3m2/'); return false;"><img src="images/motox3m2.jpg" alt="moto x3m2"></a>
+            <a href="#" onclick="create('games/fire-and-ice/'); return false;"><img src="images/fire-and-ice.png" alt="a dance of fire and ice"></a>
+            <a href="#" onclick="create('games/1v1lol/'); return false;"><img src="images/1v1-lol-new.jpg" alt="1v1lol"></a>
+            <a href="#" onclick="create('games/hill-racing/'); return false;"><img src="images/hill-racing.jpg" alt="hill-racing"></a>
+        </div>
+    </div>
+</body>
+</html>
